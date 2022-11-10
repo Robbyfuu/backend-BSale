@@ -21,7 +21,7 @@ const Product = connections_1.default.define('Product', {
     category: {
         type: sequelize_1.DataTypes.INTEGER,
         references: {
-            model: 'Category',
+            model: 'category',
             key: 'id'
         },
         onDelete: 'CASCADE',
