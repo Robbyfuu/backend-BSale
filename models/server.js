@@ -17,11 +17,13 @@ const cors_1 = __importDefault(require("cors"));
 const connections_1 = __importDefault(require("../db/connections"));
 const product_1 = __importDefault(require("../routes/product"));
 const category_1 = __importDefault(require("../routes/category"));
+const webplay_1 = __importDefault(require("../routes/webplay"));
 class Server {
     constructor() {
         this.apiPaths = {
             product: '/api/product',
-            category: '/api/category'
+            category: '/api/category',
+            webpay: '/webpay_plus'
         };
         this.app = (0, express_1.default)();
         this.port = process.env.PORT || '8000';
@@ -57,6 +59,7 @@ class Server {
     routes() {
         this.app.use(this.apiPaths.product, product_1.default);
         this.app.use(this.apiPaths.category, category_1.default);
+        this.app.use(this.apiPaths.webpay, webplay_1.default);
     }
     listen() {
         this.app.listen(this.port, () => {
